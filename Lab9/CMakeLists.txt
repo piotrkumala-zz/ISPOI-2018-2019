@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 2.8.9)
+project(directory_test)
+include_directories(include)
+file(GLOB SOURCES "src/*.cpp")
+SET(GCC_COVERAGE_COMPILE_FLAGS "-Wall -g -std=c++11")
+add_definitions(${GCC_COVERAGE_COMPILE_FLAGS})
+add_executable(output ${SOURCES})
