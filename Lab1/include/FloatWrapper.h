@@ -1,19 +1,17 @@
-#pragma once
+#pragma once 
+#include "PArr.h"
+	#include <iomanip> // setprecision
+#include <sstream> // stringstream
 
-#include"PArr.h"
-
-
-class FloatWrapper: public Wrapper{
+class FloatWrapper : public Wrapper{
 private:
-    float _f_;
+	float _f_;
 public:
-    FloatWrapper(float x):Wrapper('f'),_f_(x){};
-    void Wypisz(ostream& wyjscie){
-        wyjscie<<_f_<<" ";
-    }
-     Wrapper* Copy(){
-        Wrapper* tmp= new FloatWrapper(_f_);
-        return tmp;
-    }
+	FloatWrapper(float f):_f_(f){};
+	string Wypisz(){
+	stringstream stream;
+	stream << fixed << setprecision(1) << _f_;
+	return stream.str();
+	}
+	
 };
-

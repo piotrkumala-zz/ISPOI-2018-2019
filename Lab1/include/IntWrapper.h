@@ -1,18 +1,12 @@
-#pragma once
+#pragma once 
+#include "PArr.h"
 
-#include"PArr.h"
-
-
-class IntWrapper: public Wrapper{
+class IntWrapper : public Wrapper{
 private:
-    int _a_;
+	int _a_;
 public:
-    IntWrapper(int x):Wrapper('i'), _a_(x){}
-    void Wypisz(ostream& wyjscie){
-        wyjscie<<_a_<<" ";
-    }
-     Wrapper* Copy(){
-        Wrapper* tmp= new IntWrapper(_a_);
-        return tmp;
-    }
+	IntWrapper(int x):_a_(x){};
+	string Wypisz(){
+		return to_string(_a_);
+	}
 };

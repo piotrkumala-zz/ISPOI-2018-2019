@@ -18,26 +18,28 @@
 #include "StringWrapper.h"
 
 int main() {  
-  PArr a(3); // 3 elementowa 
+  PArr a(3); // 3 elementowa
   a[0] = new FloatWrapper(0.1);
   a[1] = new StringWrapper("nothing");
   a[2] = new IntWrapper(-1);
   std::cout << a << std::endl;
-  
   {
     PArr b(4); // 4 elementowa
     b[0] = new FloatWrapper(11.2);
     b[1] = new StringWrapper("hello");
     b[2] = new IntWrapper(-76);
     b[3] = new StringWrapper("world");
+
     
     std::cout << " przed przepisaniem " << b << std::endl;  
     a = b;
     std::cout << " po przepisaniu     " << b << std::endl;  
   }
-  std::cout << (const PArr&)a << std::endl;		 
+  
+  
+  std::cout << (const PArr&)a << std::endl;			
+  
   // UWAGA na potencjalny wyciek pamieci
-
 }
 /* wynik
 0.1 nothing -1 

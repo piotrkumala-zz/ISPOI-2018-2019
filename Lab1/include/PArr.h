@@ -1,28 +1,30 @@
 #pragma once
-#include<iostream>
-#include<string>
+#include <iostream>
 using namespace std;
 
-
 class Wrapper{
-private:
-char type_;
-public:
-    Wrapper(char c);
-    Wrapper()=default;
-    virtual ~Wrapper()=default;
-    virtual void Wypisz(ostream&)=0;
-    virtual Wrapper* Copy()=0;
+public: 
+	Wrapper()=default;
+	virtual string Wypisz()=0;
+	virtual ~Wrapper() = default;
 };
 
 class PArr{
 private:
-    int size_;
-    Wrapper **tab;
+	int size;
 public:
-    PArr(int a);
-    ~PArr();
-    Wrapper * & operator [](int a)const;
-    friend ostream& operator<<(ostream&, const PArr&);
-    PArr& operator=( PArr&);
+	Wrapper **ptr;
+	PArr(int);
+	~PArr();
+	friend ostream& operator<<(ostream& ,PArr const& );
+	void operator = (const PArr& tab){
+		if(this->size!=tab.size)
+		this->size=tab.size;
+		for(int i=0; i <tab.size; ++i ){
+			this->ptr[i]= tab.ptr[i];
+		}
+}	
+Wrapper* & operator[](int index){
+	return ptr[index];
+	};
 };
